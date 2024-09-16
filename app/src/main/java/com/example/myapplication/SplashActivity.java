@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -27,6 +28,9 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //打印
+
+        Log.i(TAG,"onCreate");
         setContentView(R.layout.activity_splash);
         //绑定textiew和button
         tvSkip = findViewById(R.id.skip);
@@ -62,4 +66,16 @@ public class SplashActivity extends AppCompatActivity {
             });
         }
     };
+    //touch事件
+    @Override
+    public boolean onTouchEvent(android.view.MotionEvent event) {
+        Log.i("test3","onTouchEvent",new Exception());
+        return super.onTouchEvent(event);
+    }
+    //dispatchTouchEvent事件
+    @Override
+    public boolean dispatchTouchEvent(android.view.MotionEvent ev) {
+        Log.i(TAG,"dispatchTouchEvent");
+        return super.dispatchTouchEvent(ev);
+    }
 }
